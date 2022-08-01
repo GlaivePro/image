@@ -16,4 +16,19 @@ class Image
 
 		return $uri;
 	}
+
+	public function pattern(): string
+	{
+		$parameter = str_replace(
+			'\{options\}',
+			'([0-9a-zA-Z\(\),\-/._]+?)?',
+			preg_quote(config('gpimage.url_parameter'))
+		);
+
+		return str_replace(
+			'{parameters}',
+			$parameter,
+			config('gpimage.url_pattern')
+		);
+	}
 }
