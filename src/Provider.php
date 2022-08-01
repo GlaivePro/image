@@ -6,6 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class Provider extends ServiceProvider
 {
+	/**
+	 * Register the services.
+	 */
+	public function register(): void
+	{
+		$this->app->singleton('gpimage', fn ($app) => $app->make(Image::class));
+	}
+
     /**
      * Load config and routes.
      */
