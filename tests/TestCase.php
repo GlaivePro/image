@@ -2,6 +2,7 @@
 
 namespace GlaivePro\Image\Tests;
 
+use GlaivePro\Image\GPImage;
 use GlaivePro\Image\Provider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -16,4 +17,11 @@ abstract class TestCase extends OrchestraTestCase
 	{
 		return [Provider::class];
 	}
+
+    protected function getPackageAliases($app): array
+    {
+        return [
+            'GPImage' => GPImage::class,
+		];
+    }
 }

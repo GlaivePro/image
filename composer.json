@@ -38,7 +38,10 @@
         "laravel": {
             "providers": [
                 "GlaivePro\\Image\\Provider"
-            ]
+            ],
+            "aliases": {
+                "GPImage": "GlaivePro\\Image\\GPImage"
+            }
         }
     }
 }
