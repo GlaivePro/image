@@ -7,10 +7,12 @@ use Illuminate\Support\ServiceProvider;
 class Provider extends ServiceProvider
 {
     /**
-     * Load routes.
+     * Load config and routes.
      */
     public function boot(): void
     {
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+		$this->mergeConfigFrom(__DIR__.'/config.php', 'gpimage');
+
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 }
