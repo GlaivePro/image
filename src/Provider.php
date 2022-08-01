@@ -14,13 +14,13 @@ class Provider extends ServiceProvider
 		$this->app->singleton('gpimage', fn ($app) => $app->make(Image::class));
 	}
 
-    /**
-     * Load config and routes.
-     */
-    public function boot(): void
-    {
+	/**
+	 * Load config and routes.
+	 */
+	public function boot(): void
+	{
 		$this->mergeConfigFrom(__DIR__.'/config.php', 'gpimage');
 
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-    }
+		$this->loadRoutesFrom(__DIR__.'/routes.php');
+	}
 }

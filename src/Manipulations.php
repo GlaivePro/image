@@ -24,8 +24,7 @@ trait Manipulations
 	{
 		if ($amount)
 			$this->options['blur'] = $amount;
-		else
-			$this->options['blur'] = true;
+		else $this->options['blur'] = true;
 
 		return $this;
 	}
