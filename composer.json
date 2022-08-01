@@ -1,0 +1,37 @@
+{
+    "name": "glaivepro/image",
+    "description": "Image manipulation via URLs for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juris Evertovskis",
+            "email": "juris@glaive.pro",
+            "homepage": "https://github.com/tontonsb"
+        }
+    ],
+    "homepage": "https://github.com/glaivepro/image",
+    "keywords": ["Laravel", "image"],
+    "require": {
+        "laravel/framework": "^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GlaivePro\\Image\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GlaivePro\\Image\\Tests\\": "tests"
+        }
+    },
+	"config": {
+        "sort-packages": true
+    },
+	"scripts": {
+		"test": "XDEBUG_MODE=coverage phpunit --coverage-text --colors --testdox"
+    }
+}
