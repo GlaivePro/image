@@ -4,8 +4,8 @@ namespace GlaivePro\Image\Tests;
 
 class RouteTest extends TestCase
 {
-    public function testRouteMatches(): void
-    {
+	public function testRouteMatches(): void
+	{
 		$this->get('something-image().jpg')
 			->assertOk();
 
@@ -32,10 +32,10 @@ class RouteTest extends TestCase
 
 		$this->get('something-image(_x400-crop).jpg')
 			->assertOk();
-    }
+	}
 
-    public function testOtherRoutesDoNotMatch(): void
-    {
+	public function testOtherRoutesDoNotMatch(): void
+	{
 		$this->get('something-image(_x400-crop).pdf')
 			->assertNotFound();
 

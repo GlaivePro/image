@@ -2,13 +2,12 @@
 
 namespace GlaivePro\Image\Tests;
 
-use GlaivePro\Image\Image;
 use GlaivePro\Image\Uri;
 
 class UrlTest extends TestCase
 {
-    public function testUrlGeneration(): void
-    {
+	public function testUrlGeneration(): void
+	{
 		$image = app('gpimage');
 
 		$this->assertInstanceOf(Uri::class, $image->url('asdf.png'));
@@ -32,5 +31,5 @@ class UrlTest extends TestCase
 			'pic-image(pixelate(12)-blur(10)-resize(100,200)).jpg',
 			$image->url('pic.jpg')->pixelate(12)->blur(10)->resize(100, 200)
 		);
-    }
+	}
 }

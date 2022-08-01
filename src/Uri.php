@@ -45,10 +45,9 @@ class Uri
 		foreach ($this->options as $option => $value) {
 			if (true === $value)
 				$options[] = $option;
-			else if (is_array($value))
+			elseif (\is_array($value))
 				$options[] = $option.'('.implode(',', $value).')';
-			else
-				$options[] = $option.'('.$value.')';
+			else $options[] = $option.'('.$value.')';
 		}
 
 		return implode('-', $options);
