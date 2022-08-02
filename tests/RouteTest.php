@@ -2,10 +2,22 @@
 
 namespace GlaivePro\Image\Tests;
 
+use GlaivePro\Image\File;
+use Mockery;
+use Mockery\MockInterface;
+
 class RouteTest extends TestCase
 {
 	public function testRouteMatches(): void
 	{
+		$mock = Mockery::mock(File::class, function(MockInterface $file) {
+			$file->shouldReceive('store');
+			$file->shouldReceive('apply');
+			$file->shouldReceive('response')->andReturn(response('123'));
+		});
+
+		app()->bind(File::class, fn() => $mock);
+
 		$this->get('something-image().jpg')
 			->assertOk();
 
