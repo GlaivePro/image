@@ -1,7 +1,8 @@
 <?php
 
-namespace GlaivePro\Image\Tests;
+namespace GlaivePro\Image\Tests\Unit;
 
+use GlaivePro\Image\Tests\TestCase;
 use GlaivePro\Image\Uri;
 
 class UrlTest extends TestCase
