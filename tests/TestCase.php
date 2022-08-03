@@ -15,7 +15,10 @@ abstract class TestCase extends OrchestraTestCase
 	 */
 	protected function getPackageProviders($app): array
 	{
-		return [Provider::class];
+		return [
+			Provider::class,
+			\Intervention\Image\ImageServiceProvider::class,
+		];
 	}
 
     protected function getPackageAliases($app): array

@@ -12,6 +12,7 @@
     "homepage": "https://github.com/glaivepro/image",
     "keywords": ["Laravel", "image"],
     "require": {
+        "intervention/image": "^2.7",
         "laravel/framework": "^9.0"
     },
     "require-dev": {
