@@ -14,19 +14,22 @@ jobs:
 
     strategy:
       matrix:
-        php: [8.0]
-        laravel: ['^8.0', '^9.0']
-        stability: ['prefer-stable']
-        include:
-          - php: 8.1
-            laravel: '^9.0'
-          - php: 8.1
-            laravel: '^9.0'
-            stability: 'prefer-lowest'
-          - php: 7.4
-            laravel: '^8.0'
-          - php: 7.3
-            laravel: '^8.0'
+        php: [8.1, 8.0, 7.4, 7.3, 7.2]
+        laravel: [9.*, 8.*, 7.*]
+        stability: [prefer-lowest, prefer-stable]
+        exclude:
+          - laravel: 7.*
+            php: 8.1
+          - laravel: 8.*
+            php: 8.1
+          - laravel: 8.*
+            php: 7.2
+          - laravel: 9.*
+            php: 7.2
+          - laravel: 9.*
+            php: 7.3
+          - laravel: 9.*
+            php: 7.4
 
     steps:
       - name: Checkout code
@@ -39,7 +42,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-            composer require "laravel/framework:${{ matrix.laravel }}" --dev --no-update
+            composer require "laravel/framework:${{ matrix.laravel }}" --no-update
             composer update --${{ matrix.stability }} --prefer-dist
 
       - name: Run tests
