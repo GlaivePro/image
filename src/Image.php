@@ -42,6 +42,8 @@ class Image
 		return $this->filters;
 	}
 
+	// Routing pattern is based on the implementation by folklore/image
+	// https://github.com/folkloreinc/laravel-image-legacy/blob/1da1a4fc6df9158e29dd5d347104f6376c169eab/src/Folklore/Image/ImageManager.php#L420
 	public function pattern(): string
 	{
 		$parameter = str_replace(
