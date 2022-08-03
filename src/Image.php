@@ -17,6 +17,9 @@ class Image
 		return $uri;
 	}
 
+	/**
+	 * Get a stringable image Url and optionally set size.
+	 */
 	public function asset(string $path, int $width = null, int $height = null): Uri
 	{
 		$fullPath = asset($path);
