@@ -18,7 +18,7 @@ class ControllerTest extends TestCase
 		});
 
 		app()->bind(File::class, function($app, $args) use ($mock) {
-			$this->assertSame('dir/something.jpg', $args['path']);
+			$this->assertSame(public_path('dir/something.jpg'), $args['path']);
 
 			return $mock;
 		});
@@ -30,7 +30,7 @@ class ControllerTest extends TestCase
 	public function testStore(): void
 	{
 		$mock = Mockery::mock(File::class, function(MockInterface $file) {
-			$file->expects()->store('dir/something-image().jpg');
+			$file->expects()->store(public_path('dir/something-image().jpg'));
 			$file->shouldReceive('apply');
 			$file->shouldReceive('response')->andReturn(response('123'));
 		});

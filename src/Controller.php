@@ -13,12 +13,12 @@ class Controller
 	{
 		preg_match('~'.GPImage::pattern().'~', $uri, $matches);
 
-		$path = $matches[1].'.'.$matches[3];
+		$path = $this->fullPath($matches[1].'.'.$matches[3]);
 		$filters = $this->filters($matches[2]);
 
 		$image = app(File::class, ['path' => $path]);
 		$image->apply($filters);
-		$image->store($uri);
+		$image->store($this->fullPath($uri));
 
 		return $image->response();
 	}
@@ -57,5 +57,10 @@ class Controller
 		}
 
 		return $filters;
+	}
+
+	protected function fullPath($path)
+	{
+		return public_path($path);
 	}
 }

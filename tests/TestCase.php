@@ -21,10 +21,25 @@ abstract class TestCase extends OrchestraTestCase
 		];
 	}
 
+	/**
+	 * Load package aliases.
+	 *
+	 * @param  \Illuminate\Foundation\Application $app
+	 */
 	protected function getPackageAliases($app): array
 	{
 		return [
 			'GPImage' => GPImage::class,
 		];
 	}
+
+	/**
+	 * Load package service providers.
+	 *
+	 * @param  \Illuminate\Foundation\Application $app
+	 */
+    protected function getEnvironmentSetUp($app): void
+    {
+        $app->instance('path.public', __DIR__.'/fixtures');
+    }
 }
