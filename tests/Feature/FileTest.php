@@ -11,7 +11,7 @@ class FileTest extends TestCase
 	protected string $source = __DIR__.'/../fixtures/bilal-mansuri-_nFgGYxeGD4-unsplash.jpg';
 	protected string $dest = __DIR__.'/../temp/target.jpg';
 
-	public function tearDown(): void
+	protected function tearDown(): void
 	{
 		if (file_exists($this->dest))
 			unlink($this->dest);

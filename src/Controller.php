@@ -34,8 +34,8 @@ class Controller
 					'height' => '_',
 				];
 
-                continue;
-            }
+				continue;
+			}
 
 			if (preg_match('/^([0-9]+|_)x([0-9]+|_)$/', $option, $matches)) {
 				$filters['size'] = [
@@ -43,8 +43,8 @@ class Controller
 					'height' => $matches[2],
 				];
 
-                continue;
-            }
+				continue;
+			}
 
 			if (preg_match('/(\w+)(?:\(([\w,.]+)\))?/', $option, $matches)) {
 				$filter = $matches[1];
@@ -53,7 +53,7 @@ class Controller
 					$filters[$filter] = strpos($matches[2], ',') ? explode(',', $matches[2]) : $matches[2];
 				} else
 					$filters[$filter] = true;
-            }
+			}
 		}
 
 		return $filters;

@@ -21,10 +21,10 @@ abstract class TestCase extends OrchestraTestCase
 		];
 	}
 
-    protected function getPackageAliases($app): array
-    {
-        return [
-            'GPImage' => GPImage::class,
+	protected function getPackageAliases($app): array
+	{
+		return [
+			'GPImage' => GPImage::class,
 		];
-    }
+	}
 }

@@ -23,7 +23,7 @@ class File
 	public function apply(array $filters): void
 	{
 		foreach ($filters as $filter => $options) {
-			if (in_array($filter, ['resize', 'blur', 'pixelate'])) {
+			if (\in_array($filter, ['resize', 'blur', 'pixelate'])) {
 				$this->image->$filter(...$options);
 
 				continue;
