@@ -36,7 +36,8 @@ class CustomFilterTest extends TestCase
 				}), 'a', 'b');
 		});
 
-		$image->filter('myfilter', $mock->called(...));
+		// Change [$mock, 'called'] to $mock->called(...) if PHP8.0 support is dropped.
+		$image->filter('myfilter', [$mock, 'called']);
 
 		$file->apply([
 			'myfilter' => ['a', 'b'],
