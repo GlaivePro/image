@@ -46,5 +46,5 @@ The simple (size constraining) URIs can be generated via our facade:
 
 ```php
 $uri = GPImage::url('img/some-image.jpg', 120, 150);
-// $uri ir `img/some-image-image(120x150).jpg`
+// $uri ir 'img/some-image-image(120x150).jpg'
 ```
