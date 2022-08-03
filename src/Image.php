@@ -29,6 +29,9 @@ class Image
 		return $this->url($fullPath, $width, $height);
 	}
 
+	/**
+	 * Register a custom handler.
+	 */
 	public function filter(string $key, callable $filter): void
 	{
 		$this->filters[$key] = $filter;
