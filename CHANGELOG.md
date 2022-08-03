@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - ...
 
-## [0.1.0] - 2022-08-03
+## [0.3.0] - 2022-08-03
+### Added
+- Laravel 8 support.
+
+## [0.2.0] - 2022-08-03
 ### Added
 - Full URL generator `GPImage::asset($path)`.
 
@@ -16,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - This package.
 
-[Unreleased]: https://github.com/glaivepro/image/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/glaivepro/image/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/glaivepro/image/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/glaivepro/image/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/glaivepro/image/releases/tag/0.1.0
