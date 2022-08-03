@@ -38,8 +38,8 @@ abstract class TestCase extends OrchestraTestCase
 	 *
 	 * @param  \Illuminate\Foundation\Application $app
 	 */
-    protected function getEnvironmentSetUp($app): void
-    {
-        $app->instance('path.public', __DIR__.'/fixtures');
-    }
+	protected function getEnvironmentSetUp($app): void
+	{
+		$app->instance('path.public', __DIR__.'/fixtures');
+	}
 }
