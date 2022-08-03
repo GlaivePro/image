@@ -25,8 +25,10 @@ jobs:
         with:
           php-version: ${{matrix.php}}
 
-      - name: Install deps
-        run: composer update --no-interaction
+      - name: Install dependencies
+        run: |
+            composer require "laravel/framework:${{ matrix.laravel }}" --dev --no-update
+            composer update --${{ matrix.stability }} --prefer-dist
 
       - name: Run tests
         run: composer test
