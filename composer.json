@@ -12,11 +12,11 @@
     "homepage": "https://github.com/glaivepro/image",
     "keywords": ["Laravel", "image"],
     "require": {
-        "intervention/image": "^2.7",
-        "laravel/framework": "^9.0"
+        "intervention/image": "^2.7"
     },
     "require-dev": {
         "janaseta/php-cs": "^1.2",
+        "laravel/framework": "^9.0",
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.0"
     },
