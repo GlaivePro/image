@@ -33,4 +33,17 @@ class UrlTest extends TestCase
 			$image->url('pic.jpg')->pixelate(12)->blur(10)->resize(100, 200)
 		);
 	}
+
+	public function testFullUrlGeneration(): void
+	{
+		$image = app('gpimage');
+		config(['app.asset_url' => 'https://example.com']);
+
+		$this->assertInstanceOf(Uri::class, $image->asset('asdf.png'));
+
+		$this->assertEquals(
+			'https://example.com/pic-image(20x400).jpg',
+			$image->asset('pic.jpg', 20, 400)
+		);
+	}
 }

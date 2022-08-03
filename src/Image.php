@@ -17,6 +17,13 @@ class Image
 		return $uri;
 	}
 
+	public function asset(string $path, int $width = null, int $height = null): Uri
+	{
+		$fullPath = asset($path);
+
+		return $this->url($fullPath, $width, $height);
+	}
+
 	public function pattern(): string
 	{
 		$parameter = str_replace(

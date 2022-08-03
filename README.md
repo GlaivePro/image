@@ -42,9 +42,23 @@ Few other manipulations are available as well:
 - `example.com/img/some-image(100x200-pixelate(10)).jpg`
 - `example.com/img/some-image(resize(120,140)-blur-pixelate(12)).jpg`
 
+### Generating URLs
+
 The simple (size constraining) URIs can be generated via our facade:
 
 ```php
 $uri = GPImage::url('img/some-image.jpg', 120, 150);
-// $uri ir 'img/some-image-image(120x150).jpg'
+// $uri is 'img/some-image-image(120x150).jpg'
+```
+
+> **Note**
+> The method is named `url` for compatibility with `folklore/image`. Even
+> though this is not intended as a drop-in replacement, this case will be such
+> if you redefine `Image` facade alias to point to `GlaivePro\Image\GPImage`.
+
+Full URLs can be generated via the `asset` method:
+
+```php
+$url = GPImage::asset('img/some-image.jpg', 120, 150);
+// $url is 'https://example.com/img/some-image-image(120x150).jpg'
 ```
