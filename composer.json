@@ -16,8 +16,9 @@
         "laravel/framework": "^9.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "orchestra/testbench": "^7.0"
+        "janaseta/php-cs": "^1.2",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,8 +34,15 @@
         "sort-packages": true
     },
 	"scripts": {
-		"test": "XDEBUG_MODE=coverage phpunit --coverage-text --colors --testdox"
-    },
+		"test": "XDEBUG_MODE=coverage phpunit --coverage-text --colors --testdox",
+		"fix": "php-cs-fixer fix",
+		"cs": "@fix --dry-run --diff"
+	},
+	"scripts-descriptions": {
+		"test": "Run tests",
+		"fix": "Fix code style",
+		"cs": "Dry run CS fixer"
+	},
 	"extra": {
         "laravel": {
             "providers": [
