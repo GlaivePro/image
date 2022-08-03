@@ -14,14 +14,17 @@ jobs:
 
     strategy:
       matrix:
-        php: [8.1, 8.0, 7.4]
+        php: [8.1, 8.0]
         laravel: [9.*, 8.*]
         stability: [prefer-lowest, prefer-stable]
         exclude:
+          # PHP 8.1 is not supported on Laravel 8
           - laravel: 8.*
             php: 8.1
-          - laravel: 9.*
-            php: 7.4
+          # PHP 8.0 was not supported on initial Laravel 8 versions
+          - laravel: 8.*
+            php: 8.0
+            stability: prefer-lowest
 
     steps:
       - name: Checkout code
