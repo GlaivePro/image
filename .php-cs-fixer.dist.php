@@ -1,7 +1,7 @@
 <?php
 
 return JanaSeta\PhpCs\Fix::in([
-    'src',
+	'src',
 	'tests',
 ])->addRules([
 	'void_return' => false,
