@@ -24,6 +24,15 @@ class File
 	{
 		foreach ($filters as $filter => $options) {
 			if (\in_array($filter, ['resize', 'blur', 'pixelate'])) {
+				if (false === $options)
+					continue;
+
+				if (true === $options)
+					$options = [];
+
+				if (!is_iterable($options))
+					$options = [$options];
+
 				$this->image->$filter(...$options);
 
 				continue;
