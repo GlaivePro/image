@@ -4,6 +4,8 @@ namespace GlaivePro\Image;
 
 class Image
 {
+	protected $filters = [];
+
 	/**
 	 * Get a stringable image Uri and optionally set size.
 	 */
@@ -25,6 +27,16 @@ class Image
 		$fullPath = asset($path);
 
 		return $this->url($fullPath, $width, $height);
+	}
+
+	public function filter(string $key, callable $filter): void
+	{
+		$this->filters[$key] = $filter;
+	}
+
+	public function getFilters(): array
+	{
+		return $this->filters;
 	}
 
 	public function pattern(): string

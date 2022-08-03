@@ -22,17 +22,21 @@ class File
 
 	public function apply(array $filters): void
 	{
+		$customFilters = GPImage::getFilters();
+
 		foreach ($filters as $filter => $options) {
+			if (false === $options)
+				continue;
+
+			$options = $this->prepareOptions($options);
+
+			if ($customFilters[$filter] ?? false) {
+				$customFilters[$filter]($this->image, ...$options);
+
+				continue;
+			}
+
 			if (\in_array($filter, ['resize', 'blur', 'pixelate'])) {
-				if (false === $options)
-					continue;
-
-				if (true === $options)
-					$options = [];
-
-				if (!is_iterable($options))
-					$options = [$options];
-
 				$this->image->$filter(...$options);
 
 				continue;
@@ -73,5 +77,16 @@ class File
 			return;
 
 		$this->image->fit($width, $height, $noUpsize);
+	}
+
+	protected function prepareOptions($options)
+	{
+		if (true === $options)
+			return [];
+
+		if (!is_iterable($options))
+			return [$options];
+
+		return $options;
 	}
 }
