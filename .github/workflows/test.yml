@@ -10,11 +10,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    name: Test on ${{matrix.php}}
+    name: PHP${{matrix.php}} — L{{matrix.laravel}} — {{matrix.stability}}
 
     strategy:
       matrix:
         php: [8.0, 8.1]
+        laravel: ['^8.0', '^9.0']
+        stability: ['prefer-lowest', 'prefer-stable']
 
     steps:
       - name: Checkout code
