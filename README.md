@@ -62,3 +62,22 @@ Full URLs can be generated via the `asset` method:
 $url = GPImage::asset('img/some-image.jpg', 120, 150);
 // $url is 'https://example.com/img/some-image-image(120x150).jpg'
 ```
+
+More complex URIs can be generated using the stringable `Uri` class:
+
+```php
+use GlaivePro\Image\Uri;
+
+$uri = new Uri('pic.jpg');
+$uri->size(20, 400);
+
+(string) $uri; // 'pic-image(20x400).jpg'
+```
+
+Instances of `Uri` can also be produced by the `url` and `asset` methods
+of the `GPImage` facade:
+
+```php
+GPImage::asset('pic.jpg')->pixelate(12)->blur(10)->resize(100, 200);
+// https://example.com/pic-image(pixelate(12)-blur(10)-resize(100,200)).jpg
+```
