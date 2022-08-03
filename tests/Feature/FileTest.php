@@ -51,6 +51,21 @@ class FileTest extends TestCase
 		$this->assertSame(200, $destSize[1]);
 	}
 
+	public function testFalseApply(): void
+	{
+		$file = new File($this->source);
+		$file->apply([
+			'resize' => false,
+		]);
+		$file->store($this->dest);
+
+		$sourceSize = getimagesize($this->source);
+		$destSize = getimagesize($this->dest);
+
+		$this->assertSame($sourceSize[0], $destSize[0]);
+		$this->assertSame($sourceSize[1], $destSize[1]);
+	}
+
 	public function testWidthConstraining(): void
 	{
 		$file = new File($this->source);
