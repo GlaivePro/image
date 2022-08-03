@@ -81,3 +81,20 @@ of the `GPImage` facade:
 GPImage::asset('pic.jpg')->pixelate(12)->blur(10)->resize(100, 200);
 // https://example.com/pic-image(pixelate(12)-blur(10)-resize(100,200)).jpg
 ```
+
+### Custom filters
+
+You can register your own filters that will receive the intervention instance
+and any arguments which you can then handle as needed:
+
+```php
+// Called via 'somepic-image(simplefilter).jpg'
+GPImage::filter('simplefilter', fn ($image) => $image->anyInterventionMethod());
+
+// Called via 'somepic-image(complexfilter(10,20))'
+GPImage::filter('complexfilter', function($image, $arg1, $arg2) {
+	$tempArg = $arg1 * 2;
+	$image->someInterventionMethod($tempArg, $arg1);
+	$image->someOtherInterventionMethod();
+});
+```
