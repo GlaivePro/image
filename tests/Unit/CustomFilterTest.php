@@ -15,11 +15,11 @@ class CustomFilterTest extends TestCase
 	{
 		$image = app('gpimage');
 
-		$this->assertSame(0, count($image->getFilters()));
+		$this->assertSame(0, \count($image->getFilters()));
 
 		$image->filter('myfilter', fn() => true);
 
-		$this->assertSame(1, count($image->getFilters()));
+		$this->assertSame(1, \count($image->getFilters()));
 	}
 
 	public function testCallback(): void
