@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- ...
+
+## [0.1.0] - 2022-08-03
+### Added
 - Full URL generator `GPImage::asset($path)`.
 
 ## [0.1.0] - 2022-08-03
