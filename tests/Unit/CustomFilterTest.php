@@ -61,7 +61,8 @@ class CustomFilterTest extends TestCase
 		);
 
 		$this->assertThrows(
-			$image->url('somepic.jpg')->otherfilter(...),
+			// $image->url('somepic.jpg')->otherfilter(...), // PHP8.1
+			fn() => $image->url('somepic.jpg')->otherfilter(),
 			\BadMethodCallException::class,
 			'Unknown method otherfilter.',
 		);
