@@ -21,6 +21,22 @@ class Uri
 		);
 	}
 
+	/**
+	 * Call additional manipulations if defined.
+	 */
+	public function __call(string $name, array $arguments)
+	{
+		$filters = GPImage::getFilters();
+
+		if ($filters[$name] ?? false) {
+			$this->options[$name] = $arguments ?: true;
+
+			return $this;
+		}
+
+		throw new \BadMethodCallException('Unknown method '.$name.'.');
+	}
+
 	public function __toString(): string
 	{
 		return str_replace(

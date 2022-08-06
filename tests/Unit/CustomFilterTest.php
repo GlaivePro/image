@@ -43,4 +43,27 @@ class CustomFilterTest extends TestCase
 			'myfilter' => ['a', 'b'],
 		]);
 	}
+
+	public function testUrlGeneration(): void
+	{
+		$image = app('gpimage');
+
+		$image->filter('myfilter', fn() => true);
+
+		$this->assertSame(
+			'somepic-image(myfilter).jpg',
+			(string) $image->url('somepic.jpg')->myfilter(),
+		);
+
+		$this->assertSame(
+			'somepic-image(myfilter(a,b)).jpg',
+			(string) $image->url('somepic.jpg')->myfilter('a', 'b'),
+		);
+
+		$this->assertThrows(
+			$image->url('somepic.jpg')->otherfilter(...),
+			\BadMethodCallException::class,
+			'Unknown method otherfilter.',
+		);
+	}
 }
