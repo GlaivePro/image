@@ -41,7 +41,10 @@ abstract class TestCase extends OrchestraTestCase
 	 */
 	protected function getEnvironmentSetUp($app): void
 	{
-		$app->instance('path.public', __DIR__.'/fixtures');
+		if (method_exists($app, 'usePublicPath')) // Laravel 10
+			$app->usePublicPath(__DIR__.'/fixtures');
+		else // Laravel 8 & Laravel 9
+			$app->instance('path.public', __DIR__.'/fixtures');
 	}
 
 	/**
