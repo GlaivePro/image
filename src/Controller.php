@@ -13,7 +13,9 @@ class Controller
 	{
 		preg_match('~'.GPImage::pattern().'~', $uri, $matches);
 
-		$path = $this->fullPath($matches[1].'.'.$matches[3]);
+		$path = config('gpimage.web_files')
+			? asset($matches[1].'.'.$matches[3])
+			: $this->fullPath($matches[1].'.'.$matches[3]);
 		$filters = $this->filters($matches[2]);
 
 		$image = app(File::class, ['path' => $path]);
