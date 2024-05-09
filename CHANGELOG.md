@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+## [1.1.0] - 2024-05-09
+### Added
+- Web files feature for files that don't exist on the local filesystem.
+
 ## [1.0.0] - 2022-08-11
 ### Added
 - Custom filters to Uri generator.
