@@ -13,10 +13,10 @@ class PathResolver
 			: $this->fullPath($path);
 	}
 
-    public function destinationPath(string $path): string
-    {
-        return $this->fullPath($path);
-    }
+	public function destinationPath(string $path): string
+	{
+		return $this->fullPath($path);
+	}
 
 	protected function fullPath(string $path): string
 	{
