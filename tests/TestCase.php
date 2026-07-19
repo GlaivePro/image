@@ -53,7 +53,7 @@ abstract class TestCase extends OrchestraTestCase
 	 */
 	protected function assertThrows(\Closure $test, \Closure|string $expectedClass = \Throwable::class, ?string $expectedMessage = null): self
 	{
-		if (method_exists(get_parent_class($this), 'assertThrows'))
+		if (method_exists(OrchestraTestCase::class, 'assertThrows'))
 			return parent::assertThrows($test, $expectedClass, $expectedMessage);
 
 		try {
