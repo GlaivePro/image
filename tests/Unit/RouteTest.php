@@ -11,13 +11,13 @@ class RouteTest extends TestCase
 {
 	public function testRouteMatches(): void
 	{
-		$mock = Mockery::mock(File::class, function(MockInterface $file) {
+		$mock = Mockery::mock(File::class, static function(MockInterface $file) {
 			$file->shouldReceive('store');
 			$file->shouldReceive('apply');
 			$file->shouldReceive('response')->andReturn(response('123'));
 		});
 
-		app()->bind(File::class, fn() => $mock);
+		app()->bind(File::class, static fn() => $mock);
 
 		$this->get('something-image().jpg')
 			->assertOk();

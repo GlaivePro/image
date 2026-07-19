@@ -62,7 +62,7 @@ class File
 
 	protected function size($width, $height): void
 	{
-		$noUpsize = function ($constraint) {
+		$noUpsize = static function ($constraint) {
 			$constraint->upsize();
 		};
 

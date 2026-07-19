@@ -11,7 +11,7 @@ class Provider extends ServiceProvider
 	 */
 	public function register(): void
 	{
-		$this->app->singleton('gpimage', fn ($app) => $app->make(Image::class));
+		$this->app->singleton('gpimage', static fn ($app) => $app->make(Image::class));
 	}
 
 	/**

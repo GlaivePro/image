@@ -17,7 +17,7 @@ class CustomFilterTest extends TestCase
 
 		$this->assertSame(0, \count($image->getFilters()));
 
-		$image->filter('myfilter', fn() => true);
+		$image->filter('myfilter', static fn() => true);
 
 		$this->assertSame(1, \count($image->getFilters()));
 	}
@@ -28,10 +28,10 @@ class CustomFilterTest extends TestCase
 
 		$image = app('gpimage');
 
-		$mock = $this->mock(\stdClass::class, function (MockInterface $mock) {
+		$mock = $this->mock(\stdClass::class, static function (MockInterface $mock) {
 			$mock->shouldReceive('called')
 				->once()
-				->with(\Mockery::on(function ($int): bool {
+				->with(\Mockery::on(static function ($int): bool {
 					return ($int instanceof \Intervention\Image\Image);
 				}), 'a', 'b');
 		});
@@ -48,7 +48,7 @@ class CustomFilterTest extends TestCase
 	{
 		$image = app('gpimage');
 
-		$image->filter('myfilter', fn() => true);
+		$image->filter('myfilter', static fn() => true);
 
 		$this->assertSame(
 			'somepic-image(myfilter).jpg',
@@ -62,7 +62,7 @@ class CustomFilterTest extends TestCase
 
 		$this->assertThrows(
 			// $image->url('somepic.jpg')->otherfilter(...), // PHP8.1
-			fn() => $image->url('somepic.jpg')->otherfilter(),
+			static fn() => $image->url('somepic.jpg')->otherfilter(),
 			\BadMethodCallException::class,
 			'Unknown method otherfilter.',
 		);

@@ -11,7 +11,7 @@ class ControllerTest extends TestCase
 {
 	public function testPath(): void
 	{
-		$mock = Mockery::mock(File::class, function(MockInterface $file) {
+		$mock = Mockery::mock(File::class, static function(MockInterface $file) {
 			$file->shouldReceive('store');
 			$file->shouldReceive('apply');
 			$file->shouldReceive('response')->andReturn(response('123'));
@@ -29,13 +29,13 @@ class ControllerTest extends TestCase
 
 	public function testStore(): void
 	{
-		$mock = Mockery::mock(File::class, function(MockInterface $file) {
+		$mock = Mockery::mock(File::class, static function(MockInterface $file) {
 			$file->expects()->store(public_path('dir/something-image().jpg'));
 			$file->shouldReceive('apply');
 			$file->shouldReceive('response')->andReturn(response('123'));
 		});
 
-		app()->bind(File::class, fn() => $mock);
+		app()->bind(File::class, static fn() => $mock);
 
 		$this->get('dir/something-image().jpg')
 			->assertOk();
@@ -43,7 +43,7 @@ class ControllerTest extends TestCase
 
 	public function testFilters(): void
 	{
-		$mock = Mockery::mock(File::class, function(MockInterface $file) {
+		$mock = Mockery::mock(File::class, static function(MockInterface $file) {
 			$file->shouldReceive('store');
 			$file->expects()->apply([
 				'size' => [
@@ -57,7 +57,7 @@ class ControllerTest extends TestCase
 			$file->shouldReceive('response')->andReturn(response('123'));
 		});
 
-		app()->bind(File::class, fn() => $mock);
+		app()->bind(File::class, static fn() => $mock);
 
 		$this->get('dir/something-image(12x20-crop-blur(2)-resize(3,4)).jpg')
 			->assertOk();
