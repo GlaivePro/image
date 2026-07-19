@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
-## [1.2.0] - 2024-05-09
+## [1.3.0] - 2026-07-19
 ### Added
 - Support for Laravel 11, Laravel 12, Laravel 13.
 - Support for new PHP versions up to 8.5 depending on Laravel version.
@@ -36,7 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - This package.
 
-[Unreleased]: https://github.com/glaivepro/image/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/glaivepro/image/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/glaivepro/image/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/glaivepro/image/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/glaivepro/image/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/glaivepro/image/compare/0.4.0...1.0.0
