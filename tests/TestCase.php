@@ -18,7 +18,6 @@ abstract class TestCase extends OrchestraTestCase
 	{
 		return [
 			Provider::class,
-			\Intervention\Image\ImageServiceProvider::class,
 		];
 	}
 
@@ -52,8 +51,11 @@ abstract class TestCase extends OrchestraTestCase
 	 * Taken directly from:
 	 * https://github.com/laravel/framework/blob/87d1da43ca53cd59f00df552466c7540fffeab25/src/Illuminate/Foundation/Testing/Concerns/InteractsWithExceptionHandling.php#L161
 	 */
-	protected function assertThrows(\Closure $test, string $expectedClass = \Throwable::class, ?string $expectedMessage = null): self
+	protected function assertThrows(\Closure $test, \Closure|string $expectedClass = \Throwable::class, ?string $expectedMessage = null): self
 	{
+		if (method_exists(get_parent_class($this), 'assertThrows'))
+			return parent::assertThrows($test, $expectedClass, $expectedMessage);
+
 		try {
 			$test();
 

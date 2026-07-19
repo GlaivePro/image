@@ -3,8 +3,8 @@
 namespace GlaivePro\Image;
 
 use Illuminate\Http\Response;
-use Intervention\Image\Facades\Image as Intervention;
 use Intervention\Image\Image as InterventionImage;
+use Intervention\Image\ImageManager;
 
 class File
 {
@@ -12,7 +12,12 @@ class File
 
 	public function __construct(string $path)
 	{
-		$this->image = Intervention::make($path);
+		// Instantiated directly because on Laravel 13+ the `image`
+		// container binding belongs to the framework's own
+		// Intervention-v3-based component.
+		$manager = new ImageManager(['driver' => config('image.driver', 'gd')]);
+
+		$this->image = $manager->make($path);
 	}
 
 	public function store(string $path): void

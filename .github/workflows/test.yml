@@ -14,23 +14,26 @@ jobs:
 
     strategy:
       matrix:
-        php: [8.2, 8.1, 8.0]
-        laravel: [10.*, 9.*, 8.*]
+        laravel: [13.*, 12.*, 11.*, 10.*, 9.*, 8.*]
         stability: [prefer-lowest, prefer-stable]
         exclude:
-          # PHP 8.2 is not supported on Laravel 8
-          - laravel: 8.*
-            php: 8.2
-          # PHP 8.1 is not supported on Laravel 8
-          - laravel: 8.*
-            php: 8.1
           # PHP 8.0 was not supported on initial Laravel 8 versions
           - laravel: 8.*
-            php: 8.0
             stability: prefer-lowest
-          # PHP 8.0 is not supported on Laravel 10
-          - laravel: 10.*
-            php: 8.0
+        # Each Laravel version runs prefer-lowest on its oldest
+        # supported PHP and prefer-stable on its newest one.
+        include:
+          - { laravel: 13.*, stability: prefer-lowest, php: '8.3' }
+          - { laravel: 13.*, stability: prefer-stable, php: '8.5' }
+          - { laravel: 12.*, stability: prefer-lowest, php: '8.2' }
+          - { laravel: 12.*, stability: prefer-stable, php: '8.5' }
+          - { laravel: 11.*, stability: prefer-lowest, php: '8.2' }
+          - { laravel: 11.*, stability: prefer-stable, php: '8.4' }
+          - { laravel: 10.*, stability: prefer-lowest, php: '8.1' }
+          - { laravel: 10.*, stability: prefer-stable, php: '8.3' }
+          - { laravel: 9.*, stability: prefer-lowest, php: '8.0' }
+          - { laravel: 9.*, stability: prefer-stable, php: '8.2' }
+          - { laravel: 8.*, stability: prefer-stable, php: '8.0' }
 
     steps:
       - name: Checkout code
