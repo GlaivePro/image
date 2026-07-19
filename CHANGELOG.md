@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+## [1.2.0] - 2024-05-09
+### Added
+- Support for Laravel 11, Laravel 12, Laravel 13.
+- Support for new PHP versions up to 8.5 depending on Laravel version.
+
 ## [1.1.0] - 2024-05-09
 ### Added
 - Web files feature for files that don't exist on the local filesystem.
@@ -31,7 +36,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - This package.
 
-[Unreleased]: https://github.com/glaivepro/image/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/glaivepro/image/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/glaivepro/image/compare/1.1.0...1.2.0
+[1.1.0]: https://github.com/glaivepro/image/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/glaivepro/image/compare/0.4.0...1.0.0
 [0.4.0]: https://github.com/glaivepro/image/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/glaivepro/image/compare/0.2.0...0.3.0
