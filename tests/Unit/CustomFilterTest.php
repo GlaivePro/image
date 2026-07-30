@@ -30,9 +30,11 @@ class CustomFilterTest extends TestCase
 		$mock = $this->mock(\stdClass::class, static function (MockInterface $mock) {
 			$mock->shouldReceive('called')
 				->once()
-				->with(\Mockery::on(static function ($int): bool {
-					return ($int instanceof \Intervention\Image\Image);
-				}), 'a', 'b');
+				->with(
+					\Mockery::on(static fn ($int): bool => ($int instanceof \Intervention\Image\Image)),
+					'a',
+					'b'
+				);
 		});
 
 		// Change [$mock, 'called'] to $mock->called(...) if PHP8.0 support is dropped.
