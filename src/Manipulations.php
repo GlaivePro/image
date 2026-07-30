@@ -20,7 +20,7 @@ trait Manipulations
 		return $this;
 	}
 
-	public function blur(int $amount = null): self
+	public function blur(?int $amount = null): self
 	{
 		if ($amount)
 			$this->options['blur'] = $amount;

@@ -9,7 +9,7 @@ class Image
 	/**
 	 * Get a stringable image Uri and optionally set size.
 	 */
-	public function url(string $path, int $width = null, int $height = null): Uri
+	public function url(string $path, ?int $width = null, ?int $height = null): Uri
 	{
 		$uri = new Uri($path);
 
@@ -22,7 +22,7 @@ class Image
 	/**
 	 * Get a stringable image Url and optionally set size.
 	 */
-	public function asset(string $path, int $width = null, int $height = null): Uri
+	public function asset(string $path, ?int $width = null, ?int $height = null): Uri
 	{
 		$fullPath = asset($path);
 
