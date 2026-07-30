@@ -2,8 +2,6 @@
 
 namespace GlaivePro\Image;
 
-use Illuminate\Http\Response;
-
 class PathResolver
 {
 	public function sourcePath(string $path): string

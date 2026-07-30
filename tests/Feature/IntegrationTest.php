@@ -2,10 +2,8 @@
 
 namespace GlaivePro\Image\Tests\Feature;
 
-use GlaivePro\Image\File;
 use GlaivePro\Image\GPImage;
 use GlaivePro\Image\Tests\TestCase;
-use Illuminate\Http\Response;
 
 class IntegrationTest extends TestCase
 {

@@ -4,7 +4,6 @@ namespace GlaivePro\Image\Tests\Unit;
 
 use GlaivePro\Image\File;
 use GlaivePro\Image\Tests\TestCase;
-use Mockery;
 use Mockery\MockInterface;
 
 class CustomFilterTest extends TestCase
